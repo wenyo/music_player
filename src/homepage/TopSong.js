@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import MusicContext, { vAlbums } from '../context/MusicContext';
+import MusicContext, { vAlbums, vSinger } from '../context/MusicContext';
 
 import { Article } from '../components/boxSize';
 import { ViceTitle, TopSongLi, TopSongUl } from '../components/word';
@@ -7,8 +7,8 @@ import { SmallImgBox } from '../components/img';
 
 export default function TopSong(){
 
-    const vNowStatus = useContext(MusicContext);
-    const singer = vNowStatus.singerInfo.singerName;
+    const { iSinger } = useContext( MusicContext );
+    const singer = vSinger[iSinger].singerName;
     const vAlbumNow = vAlbums[singer];
 
     const iAllSong = getAllSong();

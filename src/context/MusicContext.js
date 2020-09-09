@@ -191,16 +191,11 @@ const vSinger =[
     }
 ];
 
-const pageType = [ 'Singer', 'Ablum' ]
+const vPageType = [ 'Singer', 'Ablum' ]
 
-export { vAlbums, vSinger, pageType };
+export { vAlbums, vSinger, vPageType };
 
-const MusicContext = createContext({
-    nowPageType : pageType[0],
-    singerInfo : vSinger[0],
-    sAlbum: '',
-    palyingSong: '' 
-});
+const MusicContext = createContext({});
  
 export const { Provider, Consumer } = MusicContext;
 // default
