@@ -1,33 +1,62 @@
 import styled from 'styled-components';
 import { color_white } from './variable';
 
-export const HomePageImgBox = styled.div`
-    max-width: 70vh;
-    max-height: 70vh;
-    width: 35vw;
-    height: 35vw;
+const SquareBox = styled.div`
     overflow: hidden;
-    text-align: center;
+    background: url(${(props) => props.imgUrl});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+`;
+
+export const HomePageImgBox = styled(SquareBox)`
+    height: 0;
+    width: 85%;
+    padding-top: 85%;
     margin-bottom: 15px;
     position: relative;
+    overflow: unset;
+    &::before{
+        content: "";
+        background: ${color_white};
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
+        position: absolute;
+        top: -2vw;
+        left: -8vw;
+        z-index: -1;
+    }
 `;
 
-export const HomePageImg = styled.img`
+export const SmallImgBox = styled(SquareBox)`
+    width: 32px;
+    height: 32px;
+`;
+
+export const BigImgBox = styled(SquareBox)`
+    width: 30%;
+    height: 0;
+    padding-top: 30%;
+`;
+
+export const BigImgBox2 = styled(SquareBox)`
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    margin-bottom: 8px;
+`;
+
+export const BigImgBox3 = styled(BigImgBox2)`
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    margin-bottom: 8px;
+    border-radius: 100%;
+    background-position: top;
+`;
+
+export const SmallImg = styled.img`
     width: 100%;
     height: auto;
-    position: absolute;
-    top: -5vw;
-    left: 0;
-`;
-
-export const WhiteSquare = styled.div`
-    max-width: 70vh;
-    max-height: 70vh;
-    width: 35vw;
-    height: 35vw;
-    background: ${color_white};
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
 `;

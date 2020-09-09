@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import { Consumer } from '../context/MusicContext';
+import MusicContext from '../context/MusicContext';
 
 import { MainBox } from '../components/boxSize';
-import { HomePageImg, HomePageImgBox, WhiteSquare } from '../components/img';
-import { Title, Followers, Font_32 } from '../components/word';
+import { HomePageImgBox } from '../components/img';
+import { Title, Followers, FontBold32 } from '../components/word';
 import { WhiteBtn, OrangeBtn } from '../components/button';
 
 export default function Main(){
@@ -16,24 +16,21 @@ export default function Main(){
 
     return (
         <MainBox>
-            <Consumer>
+            <MusicContext.Consumer>
                 {value =>{
                     return(
                         <Fragment>
-                            <HomePageImgBox >
-                                <HomePageImg src={ value.singerInfo.singerImg }></HomePageImg>
-                            </HomePageImgBox>
-                            <WhiteSquare></WhiteSquare>
+                            <HomePageImgBox imgUrl={value.singerInfo.singerImg} />
                             <Title>{ value.singerInfo.singerName }</Title>
                             <Followers>
                                 <div>FOLLOWERS</div>
-                                <Font_32>{ changeNumber2String(value.singerInfo.followers) }</Font_32>                                   
+                                <FontBold32>{ changeNumber2String(value.singerInfo.followers) }</FontBold32>                                   
                             </Followers>
                         </Fragment>
                         )
                     }
                 }
-            </Consumer>
+            </MusicContext.Consumer>
             <WhiteBtn>FOLLOW</WhiteBtn>
             <OrangeBtn>PLAY</OrangeBtn>
         </MainBox>

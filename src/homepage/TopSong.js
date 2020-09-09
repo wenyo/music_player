@@ -1,24 +1,28 @@
-import React, { Fragment } from 'react';
-import { Consumer, vAlbums } from '../context/MusicContext';
+import React, { useContext } from 'react';
+import MusicContext, { vAlbums } from '../context/MusicContext';
 
 import { Article } from '../components/boxSize';
-import { ViceTitle } from '../components/word';
+import { ViceTitle, TopSongLi, TopSongUl } from '../components/word';
+import { SmallImgBox } from '../components/img';
 
 export default function TopSong(){
 
-    const iTop = 5;
-    const vSong = getSong();
-    const vTopSongNum = getgetTopSongArray();
+    const vNowStatus = useContext(MusicContext);
+    const singer = vNowStatus.singerInfo.singerName;
+    const vAlbumNow = vAlbums[singer];
+
+    const iAllSong = getAllSong();
+    const iTop = 5 < iAllSong ? 5 : iAllSong;
+
+    const vTopSong = getTopSongArray();
 
     // get all songs
-    function getSong(){
-        let vSong = [];
-        for (const singer in vAlbums) {
-            for (const album of vAlbums[singer]) {
-                vSong = vSong.concat(album.song)
-            }
+    function getAllSong(){
+        let iSongs = 0;
+        for (const album of vAlbums[singer]) {
+            iSongs += album.song.length || 0;
         }
-        return vSong;
+        return iSongs;
     }
 
     // get random number
@@ -27,35 +31,41 @@ export default function TopSong(){
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
     }
-    function getTopSongNum(min, max, array) {
+    function getTopSongNum( min, max, array, iAlbum ) {
         let iNum = getRandomInt(min, max);
-        if(array.indexOf(iNum) == -1){
+        if(array.indexOf(iAlbum + '_' + iNum) === -1){
             return iNum;
         }else{
-            return getTopSongNum(min, max, array);
+            return getTopSongNum(min, max, array, iAlbum);
         }
     }
 
     // get random array
-    function getgetTopSongArray(){
-        let iMin = 0;
-        let iMax = vSong.length - 1;
-        const vTopSongNum = [];
-        let len = iTop > vSong.length ? vSong.length : iTop;
-        for(let i = 0; i <= len; i++){
-            vTopSongNum.push(getTopSongNum(iMin, iMax, vTopSongNum));
+    function getTopSongArray(){
+        let vTopSong = [];
+        let vTopSongCompare = [];
+        for (let idx = 0; idx < iTop; idx++) {
+            let iAlbum = getRandomInt( 0, vAlbumNow.length );
+            let iSong = getTopSongNum( 0, vAlbumNow[iAlbum].song.length, vTopSongCompare, iAlbum );
+            vTopSongCompare.push( iAlbum + '_' + iSong )
+            vTopSong.push( [iAlbum, iSong] )
         }
-        return vTopSongNum;
+        return vTopSong;
     }
 
     return <Article>
         <ViceTitle>Top Songs</ViceTitle>
-        <ul>
+        <TopSongUl>
             {
-                vTopSongNum.map( idx =>(
-                    <li key={idx}>{vSong[idx].name}</li>
+                vTopSong.map( value => (
+                    <TopSongLi key={ value[0] + '_' + value[1] } data-music={ vAlbumNow[value[0]]['song'][[value[1]]].url } >
+                        <SmallImgBox imgUrl={vAlbumNow[value[0]]['albumImg'] } />
+                        <span className='song_name'>{ vAlbumNow[value[0]]['song'][[value[1]]].name }</span>
+                        <span>{ vAlbumNow[value[0]]['song'][[value[1]]].time }</span>
+                        <img src='./icon/play_icon_x2.png' alt=''/>
+                    </TopSongLi>
                 ))
             }
-        </ul>
+        </TopSongUl>
     </Article>
 }

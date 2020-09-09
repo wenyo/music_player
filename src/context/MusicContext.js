@@ -9,7 +9,8 @@ const vAlbums =  {
             'name': 'But I Must Explain To You (Deluxe)',
             'albumImg': sImgUrl + 'henrik-donnestad-V6Qd6zA85ck-unsplash.jpg',
             'year': '2019',
-            'date': '2019.7.15',
+            'month': '7',
+            'day': '15',
             'song': 
             [
                 {
@@ -53,6 +54,8 @@ const vAlbums =  {
             'name': 'itself',
             'albumImg': sImgUrl + 'bangkit-ristant-cuIwZaJAFS8-unsplash.jpg',
             'year': '2018',
+            'month': '7',
+            'day': '15',
             'song' :
             [
                 {
@@ -76,6 +79,8 @@ const vAlbums =  {
             'name': 'Solo',
             'albumImg': sImgUrl + 'noah-silliman-gzhyKEo_cbU-unsplash.jpg',
             'year': '2017',
+            'month': '7',
+            'day': '15',
             'song':
             [
                 {
@@ -114,6 +119,8 @@ const vAlbums =  {
             'name': 'Happiness',
             'albumImg': sImgUrl + 'piron-guillaume-NM77255WWVA-unsplash.jpg',
             'year': '2015',
+            'month': '7',
+            'day': '15',
             'song': 
             [
                 {
@@ -137,6 +144,8 @@ const vAlbums =  {
             'name': 'No More Excuses',
             'albumImg': sImgUrl + 'steve-johnson-IykhuSC5jgw-unsplash.jpg',
             'year': '2013',
+            'month': '7',
+            'day': '15',
             'song':
             [
                 {
@@ -186,10 +195,13 @@ const pageType = [ 'Singer', 'Ablum' ]
 
 export { vAlbums, vSinger, pageType };
 
-// default
-export const { Provider, Consumer } = createContext({
+const MusicContext = createContext({
     nowPageType : pageType[0],
     singerInfo : vSinger[0],
-    album: vAlbums[vSinger[0].singerName][0],
+    sAlbum: '',
     palyingSong: '' 
 });
+ 
+export const { Provider, Consumer } = MusicContext;
+// default
+export default MusicContext;
