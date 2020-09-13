@@ -7,19 +7,20 @@ import { BigImgBox2 } from '../components/img';
 
 export default function RecentAlbum(){
     const { iSinger } = useContext(MusicContext);
-    const vSingerAlbum = vAlbums[vSinger[iSinger].singerName];
+    const singerName = vSinger[iSinger].singerName;
+    const vSingerAlbum = vAlbums[singerName];
 
     return <Article>
             <ViceTitle>RecentAlbum</ViceTitle>
             <OuterBox >
                 {
-                    vSingerAlbum.map( ( vAlbum, idx ) => {
-                        if( idx === 0 ) return false;
-                        return <InnerBox key={idx}>
-                            <BigImgBox2 imgUrl={vAlbum.albumImg}/>
-                            <FontBold16>{vAlbum.name}</FontBold16>
-                            <div>{vAlbum.year}</div>
-                        </InnerBox>
+                    vSingerAlbum.map( ( vAlbum, iAlbum ) => {
+                        if( iAlbum === 0 ) return false;
+                        return  <InnerBox key={iAlbum}  href={`../album/${singerName}/${iAlbum}`}>
+                                    <BigImgBox2 imgUrl={vAlbum.albumImg}/>
+                                    <FontBold16>{vAlbum.name}</FontBold16>
+                                    <div>{vAlbum.year}</div>
+                                </InnerBox>
                     })
                 }
             </OuterBox>

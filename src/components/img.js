@@ -45,6 +45,7 @@ export const BigImgBox2 = styled(SquareBox)`
     height: 0;
     padding-top: 100%;
     margin-bottom: 8px;
+    transition: all .3s;
 `;
 
 export const BigImgBox3 = styled(BigImgBox2)`
@@ -54,6 +55,7 @@ export const BigImgBox3 = styled(BigImgBox2)`
     margin-bottom: 8px;
     border-radius: 100%;
     background-position: top;
+    transition: all .3s;
 `;
 
 export const SmallImg = styled.img`

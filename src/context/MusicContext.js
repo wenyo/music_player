@@ -195,7 +195,9 @@ const vPageType = [ 'Singer', 'Ablum' ]
 
 export { vAlbums, vSinger, vPageType };
 
-const MusicContext = createContext({});
+const MusicContext = createContext({
+    iSinger: 0
+});
  
 export const { Provider, Consumer } = MusicContext;
 // default

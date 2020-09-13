@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color_gray3, color_white } from './variable';
+import { color_gray3, color_white, color_black, color_gray1 } from './variable';
 
 export const Wrap = styled.div`
     background-color: ${color_gray3};
@@ -26,10 +26,16 @@ export const Article = styled.div`
     padding: 20px 30px 20px 0;
 `;
 
-export const NewReleaseBox = styled.div`
+export const NewReleaseBox = styled.a`
     background-color: ${color_white};
     width: 100%;
     display: flex;
+    text-decoration: unset;
+    transition: all .3s;
+    color: ${color_black};
+    &:hover{
+        box-shadow: 0 0 10px ${color_gray1};
+    }
 `;
 
 export const OuterBox = styled.div`
@@ -38,15 +44,25 @@ export const OuterBox = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    &>div{
+    &>a{
       margin-bottom: 30px; 
     }
 `;
 
-export const InnerBox = styled.div`
+export const InnerBox = styled.a`
     width: 30%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    text-decoration: unset;
+    transition: all .3s;
+    color: ${color_black};
+    &:hover div:first-child:hover{
+        box-shadow: 0 0 10px ${color_gray1};
+    }
+    &:hover div{
+        text-decoration: underline;
+    }
 `;
 
 export const InnerBox2 = styled(InnerBox)`

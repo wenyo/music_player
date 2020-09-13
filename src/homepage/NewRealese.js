@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import MusicContext, { vAlbums, vSinger } from '../context/MusicContext';
 
 import { Article, NewReleaseBox } from '../components/boxSize';
@@ -7,12 +8,12 @@ import { BigImgBox } from '../components/img';
 
 export default function NewRealese(){
 
-    const {sPageType,iSinger,iAlbum, changePage } = useContext(MusicContext);
+    const { iSinger, iAlbum } = useContext(MusicContext);
     const singerName = vSinger[iSinger].singerName;
-    console.log(iSinger)
+
     return  <Article>
                 <ViceTitle>New Realese</ViceTitle>
-                <NewReleaseBox>
+                <NewReleaseBox href={`../album/${singerName}/${iAlbum}`}>
                     <BigImgBox imgUrl={ vAlbums[singerName][0].albumImg }></BigImgBox>
                     <NewReleaseWord>
                         <FontBold20>{ vAlbums[singerName][0].name }</FontBold20>
@@ -20,9 +21,8 @@ export default function NewRealese(){
                             vAlbums[singerName][0].year + '.'
                             + vAlbums[singerName][0].month + '.'
                             + vAlbums[singerName][0].day 
-                        }</div>                                    
+                        }</div>                              
                     </NewReleaseWord>
-
                 </NewReleaseBox>
             </Article>
 }
