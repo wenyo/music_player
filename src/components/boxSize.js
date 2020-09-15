@@ -5,7 +5,7 @@ export const Wrap = styled.div`
     background-color: ${color_gray3};
     width: 100vw;
     min-height: 100vh;
-    font-family: 'Helvetica Neue';
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 `;
 
 export const MainBox = styled.div`

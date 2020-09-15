@@ -8,12 +8,12 @@ import { BigImgBox } from '../components/img';
 
 export default function NewRealese(){
 
-    const { iSinger, iAlbum } = useContext(MusicContext);
+    const { iSinger } = useContext(MusicContext);
     const singerName = vSinger[iSinger].singerName;
 
     return  <Article>
                 <ViceTitle>New Realese</ViceTitle>
-                <NewReleaseBox href={`../album/${singerName}/${iAlbum}`}>
+                <NewReleaseBox href={`../album/${singerName}/0`}>
                     <BigImgBox imgUrl={ vAlbums[singerName][0].albumImg }></BigImgBox>
                     <NewReleaseWord>
                         <FontBold20>{ vAlbums[singerName][0].name }</FontBold20>
