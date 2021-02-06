@@ -31,9 +31,9 @@ export const NewReleaseBox = styled.a`
     width: 100%;
     display: flex;
     text-decoration: unset;
-    transition: all .3s;
+    transition: all 0.3s;
     color: ${color_black};
-    &:hover{
+    &:hover {
         box-shadow: 0 0 10px ${color_gray1};
     }
 `;
@@ -44,8 +44,8 @@ export const OuterBox = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    &>a{
-      margin-bottom: 30px; 
+    & > a {
+        margin-bottom: 30px;
     }
 `;
 
@@ -55,12 +55,12 @@ export const InnerBox = styled.a`
     flex-direction: column;
     cursor: pointer;
     text-decoration: unset;
-    transition: all .3s;
+    transition: all 0.3s;
     color: ${color_black};
-    &:hover div:first-child:hover{
+    &:hover div:first-child:hover {
         box-shadow: 0 0 10px ${color_gray1};
     }
-    &:hover div{
+    &:hover div {
         text-decoration: underline;
     }
 `;

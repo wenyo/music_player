@@ -16,8 +16,8 @@ export const HomePageImgBox = styled(SquareBox)`
     margin-bottom: 15px;
     position: relative;
     overflow: unset;
-    &::before{
-        content: "";
+    &::before {
+        content: '';
         background: ${color_white};
         width: 100%;
         height: 0;
@@ -45,7 +45,7 @@ export const BigImgBox2 = styled(SquareBox)`
     height: 0;
     padding-top: 100%;
     margin-bottom: 8px;
-    transition: all .3s;
+    transition: all 0.3s;
 `;
 
 export const BigImgBox3 = styled(BigImgBox2)`
@@ -55,7 +55,7 @@ export const BigImgBox3 = styled(BigImgBox2)`
     margin-bottom: 8px;
     border-radius: 100%;
     background-position: top;
-    transition: all .3s;
+    transition: all 0.3s;
 `;
 
 export const SmallImg = styled.img`

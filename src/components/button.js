@@ -7,14 +7,14 @@ const Button = styled.button`
     margin: 0 10px;
     border-radius: 22px;
     cursor: pointer;
-    transition: all .3s;
+    transition: all 0.3s;
 `;
 
 export const WhiteBtn = styled(Button)`
     background: ${color_white};
     color: ${color_black};
     border: 1px solid ${color_black};
-    :hover{
+    :hover {
         background: ${color_black};
         color: ${color_white};
     }
@@ -24,7 +24,7 @@ export const OrangeBtn = styled(Button)`
     background: ${color_orange};
     border: 1px solid ${color_orange};
     color: ${color_white};
-    :hover{
+    :hover {
         background: ${color_white};
         color: ${color_orange};
     }

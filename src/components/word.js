@@ -20,7 +20,7 @@ export const ViceTitle = styled.div`
 
 export const TopSongUl = styled.ul`
     counter-reset: num;
-`
+`;
 
 export const TopSongLi = styled.li`
     width: 100%;
@@ -29,15 +29,15 @@ export const TopSongLi = styled.li`
     align-items: center;
     position: relative;
 
-    &>span{
+    & > span {
         margin-left: 20px;
     }
 
-    &>.song_name{
+    & > .song_name {
         width: 50%;
     }
 
-    &>img {
+    & > img {
         margin-left: 20px;
         width: 28px;
         height: auto;
@@ -45,14 +45,14 @@ export const TopSongLi = styled.li`
         right: 0;
     }
 
-    &::before{
-        counter-increment:num; 
-        content:counter(num);
+    &::before {
+        counter-increment: num;
+        content: counter(num);
         margin-right: 30px;
     }
 
     &::after {
-        content: "";
+        content: '';
         width: 100%;
         height: 1px;
         position: absolute;
